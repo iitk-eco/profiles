@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSc Economics 2025-27 | IIT Kanpur</title>
+<style>
+
+:root{
+  --navy:#0d2c4a;--navy-dark:#08192c;--teal:#1b7a8c;--teal-light:#2fa4b8;--gold:#f2a900;
+  --bg:#f4f7f9;--card:#ffffff;--text:#1a2530;--text-muted:#5c6b78;
+  --border:rgba(13,44,74,0.12);
+  --shadow-sm:0 2px 8px rgba(13,44,74,0.08);--shadow-md:0 8px 24px rgba(13,44,74,0.14);--shadow-lg:0 20px 48px rgba(13,44,74,0.22);
+  --radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-full:999px;
+  --trans:0.3s cubic-bezier(.25,.8,.25,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--gold);color:#000;}
+section[id]{scroll-margin-top:70px;}
+
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 40px;background:rgba(8,25,44,0.92);backdrop-filter:blur(10px);transition:var(--trans);box-shadow:0 2px 14px rgba(0,0,0,0.25);}
+nav .logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:1.25rem;}
+nav .logo img{height:34px;}
+nav ul{list-style:none;display:flex;gap:26px;}
+nav ul li a{color:#e8f0f7;font-weight:500;font-size:.95rem;position:relative;transition:var(--trans);}
+nav ul li a::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--gold);transition:var(--trans);}
+nav ul li a:hover{color:var(--gold);}
+nav ul li a:hover::after{width:100%;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hamburger span{width:26px;height:3px;background:#fff;border-radius:2px;}
+
+.hero{height:100vh;min-height:600px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;}
+.hero .bg-img{position:absolute;inset:0;background-size:cover;background-position:center;
+  background-image:url('web/IITK.jpg');filter:brightness(0.55) saturate(1.1);}
+.hero .overlay{position:absolute;inset:0;background:linear-gradient(135deg, rgba(8,25,44,0.92), rgba(13,44,74,0.75) 55%, rgba(27,122,140,0.55));}
+.hero .overlay::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 25% 25%,rgba(242,169,0,0.18),transparent 40%),radial-gradient(circle at 80% 75%,rgba(47,164,184,0.28),transparent 45%);
+  animation:pulseBg 9s ease-in-out infinite alternate;}
+@keyframes pulseBg{0%{opacity:.5;}100%{opacity:1;}}
+.hero-content{position:relative;z-index:2;max-width:820px;padding:20px;}
+.hero-content img.crest{height:70px;margin-bottom:18px;animation:fadeInDown 1s ease both;}
+.hero-content h1{font-size:clamp(2rem,4vw,3.4rem);margin-bottom:14px;animation:fadeInDown 1s ease both;}
+.hero-content p{font-size:1.15rem;opacity:.92;margin-bottom:28px;animation:fadeInUp 1s ease .3s both;}
+.btn{display:inline-block;padding:13px 32px;border-radius:var(--radius-full);background:var(--gold);color:#1a1a1a;font-weight:600;
+  transition:var(--trans);box-shadow:0 8px 20px rgba(242,169,0,0.4);border:none;cursor:pointer;}
+.btn:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(242,169,0,0.55);}
+.btn.outline{background:transparent;border:2px solid #fff;color:#fff;box-shadow:none;}
+.btn.outline:hover{background:#fff;color:var(--navy);}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+.section{padding:clamp(50px,8vw,100px) 6% 60px;max-width:1320px;margin:0 auto;}
+.section h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:10px;color:var(--navy);}
+.section .eyebrow{color:var(--teal);font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:1.5px;margin-bottom:8px;display:block;}
+.section .subtitle{color:var(--text-muted);max-width:750px;margin-bottom:44px;}
+.section hr.divider{border:none;height:3px;background:linear-gradient(90deg,var(--teal),var(--gold));width:70px;margin:14px 0 40px;border-radius:2px;}
+
+.reveal{opacity:0;transform:translateY(36px);transition:all .8s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
+.grid{display:grid;gap:24px;}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+.grid-5{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
+
+.card{background:var(--card);border-radius:var(--radius-lg);padding:28px;box-shadow:var(--shadow-sm);transition:var(--trans);border:1px solid var(--border);}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow-md);}
+
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center;}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr;}}
+.about-grid img{border-radius:var(--radius-lg);box-shadow:var(--shadow-md);}
+.about-list{list-style:none;margin-top:20px;}
+.about-list li{padding:10px 0 10px 32px;position:relative;color:var(--text-muted);}
+.about-list li::before{content:'✓';position:absolute;left:0;top:8px;color:var(--teal);font-weight:700;background:rgba(27,122,140,0.12);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;}
+
+.placement-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+@media(max-width:900px){.placement-wrap{grid-template-columns:1fr;}}
+.stat-box{background:var(--card);border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow-sm);}
+.stat-box .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border);}
+.stat-box .row:last-child{border-bottom:none;}
+.stat-box .row .label{color:var(--text-muted);}
+.stat-box .row .value{font-weight:700;color:var(--navy);font-size:1.15rem;}
+.pie-wrap{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+.pie-legend{list-style:none;font-size:.9rem;}
+.pie-legend li{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.pie-legend .dot{width:12px;height:12px;border-radius:3px;display:inline-block;}
+
+.gender-bar{height:34px;border-radius:var(--radius-full);overflow:hidden;display:flex;margin:16px 0 6px;box-shadow:var(--shadow-sm);}
+.gender-bar .seg{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:600;font-size:.85rem;}
+.alumni-box{background:var(--card);border-left:4px solid var(--teal);border-radius:var(--radius-md);padding:22px;margin-top:24px;box-shadow:var(--shadow-sm);}
+.alumni-box h4{color:var(--navy);margin-bottom:8px;}
+.alumni-box p{color:var(--text-muted);font-size:.95rem;}
+
+.stats-strip{background:linear-gradient(135deg,var(--navy-dark),var(--navy) 60%,var(--teal));border-radius:var(--radius-lg);color:#fff;padding:44px 24px;
+  display:flex;justify-content:center;gap:60px;flex-wrap:wrap;margin:20px 0 0;}
+.stats-strip .stat{text-align:center;}
+.stats-strip .stat h3{font-size:2.4rem;color:var(--gold);}
+.stats-strip .stat p{opacity:.9;font-weight:500;font-size:.9rem;}
+
+.carousel{position:relative;max-width:820px;margin:0 auto;overflow:hidden;}
+.carousel-track{display:flex;transition:transform .6s cubic-bezier(.25,.8,.25,1);}
+.carousel-slide{flex:0 0 100%;padding:10px;}
+.testimonial-card{background:var(--card);border-radius:var(--radius-lg);padding:34px;text-align:center;box-shadow:var(--shadow-md);position:relative;}
+.testimonial-card img{width:74px;height:74px;border-radius:50%;margin:0 auto 16px;object-fit:cover;border:3px solid var(--teal-light);}
+.testimonial-card p.quote{font-style:italic;color:var(--text-muted);margin-bottom:14px;font-size:1.02rem;}
+.testimonial-card h4{color:var(--navy);}
+.testimonial-card span{color:var(--teal);font-size:.85rem;font-weight:600;}
+.carousel-dots{display:flex;justify-content:center;gap:10px;margin-top:24px;}
+.carousel-dots .dot{width:10px;height:10px;border-radius:50%;background:var(--border);cursor:pointer;transition:var(--trans);}
+.carousel-dots .dot.active{background:var(--teal);width:26px;border-radius:6px;}
+.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:#fff;box-shadow:var(--shadow-sm);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;font-size:1.2rem;color:var(--navy);transition:var(--trans);}
+.carousel-arrow:hover{background:var(--teal);color:#fff;}
+.carousel-arrow.prev{left:-10px;}
+.carousel-arrow.next{right:-10px;}
+
+.marquee-wrap{overflow:hidden;position:relative;padding:30px 0;background:var(--card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);}
+.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;}
+.marquee-wrap::before{left:0;background:linear-gradient(90deg,var(--card),transparent);}
+.marquee-wrap::after{right:0;background:linear-gradient(-90deg,var(--card),transparent);}
+.marquee-track{display:flex;gap:60px;width:max-content;animation:scrollMarquee 30s linear infinite;align-items:center;}
+.marquee-track img{height:42px;filter:grayscale(35%);opacity:.85;transition:var(--trans);}
+.marquee-track img:hover{filter:grayscale(0%);opacity:1;transform:scale(1.08);}
+@keyframes scrollMarquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+.skill-card{background:var(--card);border-radius:var(--radius-md);padding:22px 14px;text-align:center;box-shadow:var(--shadow-sm);transition:var(--trans);border:1px solid var(--border);}
+.skill-card:hover{transform:translateY(-6px) scale(1.04);box-shadow:var(--shadow-md);border-color:var(--teal-light);}
+.skill-card img{height:44px;margin:0 auto 12px;}
+.skill-card p{font-weight:600;font-size:.9rem;color:var(--navy);}
+
+.course-block{background:var(--card);border-radius:var(--radius-lg);padding:30px;box-shadow:var(--shadow-sm);transition:var(--trans);border:1px solid var(--border);}
+.course-block:hover{box-shadow:var(--shadow-md);}
+.course-block h3{color:var(--teal);text-align:center;font-size:1.3rem;margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+.course-block ol{padding-left:22px;color:var(--text-muted);}
+.course-block ol li{padding:6px 0;}
+.course-block.featured{background:linear-gradient(160deg,#eaf3f5,var(--card));border-color:var(--teal-light);}
+
+.filter-bar{display:flex;justify-content:center;gap:14px;margin-bottom:40px;flex-wrap:wrap;}
+.filter-bar input{padding:11px 18px;border-radius:var(--radius-full);border:1px solid var(--border);font-size:.95rem;
+  outline:none;transition:var(--trans);background:var(--card);width:320px;max-width:90%;}
+.filter-bar input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(27,122,140,0.15);}
+
+.student-card{background:var(--card);border-radius:var(--radius-lg);overflow:hidden;text-align:center;box-shadow:var(--shadow-sm);transition:var(--trans);
+  position:relative;border:1px solid var(--border);}
+.student-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg);}
+.student-card .photo-wrap{position:relative;overflow:hidden;height:230px;}
+.student-card img{width:100%;height:100%;object-fit:cover;transition:var(--trans);}
+.student-card:hover .photo-wrap img{transform:scale(1.08);}
+.student-card .photo-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,44,74,0.45),transparent 50%);}
+.student-info{padding:18px;}
+.student-info h3{color:var(--navy);margin-bottom:10px;font-size:1.05rem;}
+.social-links{display:flex;justify-content:center;gap:8px;margin-bottom:12px;}
+.social-links a{width:26px;height:26px;border-radius:50%;background:rgba(27,122,140,0.08);display:flex;align-items:center;justify-content:center;transition:var(--trans);}
+.social-links a:hover{background:var(--teal);transform:scale(1.12);}
+.social-links a:hover img{filter:brightness(0) invert(1);}
+.social-links a img{width:14px;height:14px;}
+.tag-wrap{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.tag-wrap .tag{display:inline-block;background:var(--teal);color:#fff;font-size:.68rem;padding:4px 10px;border-radius:var(--radius-full);font-weight:600;}
+
+footer{background:var(--navy-dark);color:#c9d6e0;text-align:center;padding:40px 20px;margin-top:60px;}
+footer .logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;}
+footer .logo img{height:32px;}
+footer a{color:var(--gold);}
+footer .foot-links{display:flex;justify-content:center;gap:24px;margin:14px 0;flex-wrap:wrap;font-size:.9rem;}
+
+#backToTop{position:fixed;bottom:30px;right:30px;background:var(--gold);color:#1a1a1a;width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:var(--trans);
+  box-shadow:var(--shadow-md);z-index:999;font-size:1.3rem;border:none;}
+#backToTop.show{opacity:1;pointer-events:auto;}
+
+/* CONTACT PAGE */
+.contact-hero{position:relative;overflow:hidden;padding:clamp(60px,10vw,110px) 6% clamp(50px,8vw,80px);text-align:center;color:#fff;}
+.contact-hero .bg-img{position:absolute;inset:0;background-size:cover;background-position:center;
+  background-image:url('web/iitk2.jpg');filter:brightness(0.9);}
+.contact-hero .overlay{position:absolute;inset:0;background:linear-gradient(160deg, rgba(13,44,74,0.82), rgba(27,122,140,0.72));}
+.contact-hero-content{position:relative;z-index:2;max-width:820px;margin:0 auto;}
+.contact-hero-content img.crest{height:90px;margin-bottom:26px;}
+.contact-hero-content h1{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;margin-bottom:18px;text-transform:uppercase;letter-spacing:1px;}
+.contact-hero-content p{font-size:1.05rem;opacity:.92;max-width:520px;margin:0 auto;}
+
+.contact-dark{background:var(--navy-dark);color:#e8f0f7;padding:clamp(50px,8vw,90px) 6%;}
+.contact-dark h2{font-size:clamp(1.6rem,3vw,2.1rem);color:#fff;margin-bottom:6px;font-weight:400;border-bottom:2px solid rgba(255,255,255,0.25);display:inline-block;padding-bottom:10px;}
+.contact-block{max-width:1200px;margin:0 auto 70px;}
+.contact-info-grid{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:30px;align-items:center;margin-top:40px;}
+@media(max-width:800px){.contact-info-grid{grid-template-columns:1fr;text-align:center;}}
+.qr-block{text-align:center;}
+.qr-block img{width:130px;height:130px;background:#fff;padding:8px;border-radius:var(--radius-sm);margin:0 auto 12px;}
+.qr-block a{color:#fff;text-decoration:underline;font-size:.9rem;}
+.contact-address{text-align:center;color:#dbe6ee;font-size:.98rem;line-height:1.8;}
+.contact-address a{color:var(--gold);}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:700px;margin:40px auto 0;}
+.team-member{text-align:center;}
+.team-member img{width:150px;height:150px;object-fit:cover;border-radius:var(--radius-md);border:2px solid var(--teal-light);margin:0 auto 14px;}
+.team-member h4{color:#fff;font-size:1.05rem;margin-bottom:4px;}
+.team-member .role{color:#a9bccb;font-size:.82rem;margin-bottom:8px;}
+.team-member a{color:var(--gold);font-size:.85rem;text-decoration:underline;display:block;}
+.team-member .phone{color:#a9bccb;font-size:.82rem;margin-top:2px;}
+
+@media(max-width:768px){
+  nav ul{position:fixed;top:62px;right:-100%;background:var(--navy-dark);flex-direction:column;width:230px;height:calc(100vh - 62px);
+    padding:30px;transition:var(--trans);gap:20px;}
+  nav ul.show{right:0;}
+  .hamburger{display:flex;}
+  .stats-strip{gap:30px;}
+  .carousel-arrow{display:none;}
+}
+
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo"><img src="web/logo_white.png" alt="IITK logo" onerror="this.style.display='none'">MSc Eco'25-27</div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Department</a></li>
+      <li><a href="#placements">Placements</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#batch">Batch Profile</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="bg-img"></div>
+    <div class="overlay"></div>
+    <div class="hero-content">
+     <center> <img class="crest" src="web/logo_white.png" alt="IITK crest" loading="lazy" width="70" height="70"></center>
+      <h1>MSc Economics 2025-27</h1>
+      <p>Department of Economic Sciences, IIT Kanpur — a batch of curious minds exploring economics, data, and policy.</p>
+      <a href="#batch" class="btn">Meet the Batch</a>
+      <a href="#courses" class="btn outline" style="margin-left:14px;">View Courses</a>
+    </div>
+  </section>
+
+  <section class="section reveal" id="about">
+    <span class="eyebrow">Who we are</span>
+    <h2>About the Department</h2>
+    <hr class="divider">
+    <div class="about-grid">
+      <img src="web/ESB.png" alt="Department of Economic Sciences building" loading="lazy" width="700" height="500">
+      <div>
+        <p style="color:var(--text-muted);margin-bottom:10px;">
+          The Department of Economic Sciences at IIT Kanpur offers a rigorous and interdisciplinary curriculum that integrates economics with technology, preparing students to solve complex real-world problems through analytical and data-driven approaches.
+        </p>
+
+        <ul class="about-list">
+          <li>The two-year M.Sc. Economics programme builds strong foundations in quantitative modelling, economic theory, econometrics, data analysis, and machine learning.</li>
+
+          <li>Hands-on training in industry-relevant tools such as Python, MATLAB, R, and STATA equips students with practical analytical and computational skills.</li>
+
+          <li>With 25 distinguished faculty members whose expertise spans both classical and emerging fields of economics, the department fosters research-driven learning and practical problem-solving.</li>
+
+          <li>Graduates are well prepared for careers in analytics, banking, data science, consulting, public policy, and research.</li>
+        </ul>
+      </div>
+    </div>
+<!--
+    <div class="stats-strip">
+      <div class="stat"><h3 data-count="35">0</h3><p>Batchmates</p></div>
+      <div class="stat"><h3 data-count="12">0</h3><p>Core Courses</p></div>
+      <div class="stat"><h3 data-count="8">0</h3><p>Ongoing Projects</p></div>
+      <div class="stat"><h3 data-count="98">0</h3><p>% Placed</p></div>
+    </div>
+    -->
+  </section>
+
+    
+  <section class="section reveal" id="placements">
+    <span class="eyebrow">Outcomes</span>
+    <h2>Placement Demographics</h2>
+    <hr class="divider">
+
+    <div class="placement-wrap">
+
+      <div>
+
+        <div class="stat-box" style="margin-bottom:24px;">
+          <h3 style="color:var(--navy);margin-bottom:16px;font-size:1.1rem;">Placement '25 Statistics</h3>
+
+          <div class="row">
+            <span class="label">Highest</span>
+            <span class="value">₹<span data-count="19.33">0</span> LPA</span>
+          </div>
+
+          <div class="row">
+            <span class="label">Mean</span>
+            <span class="value">₹<span data-count="15.58">0</span> LPA</span>
+          </div>
+
+          <div class="row">
+            <span class="label">Median</span>
+            <span class="value">₹<span data-count="16.20">0</span> LPA</span>
+          </div>
+
+        </div>
+
+        <div class="stat-box">
+          <h3 style="color:var(--navy);margin-bottom:16px;font-size:1.1rem;">Placement '26 Statistics</h3>
+
+          <div class="row">
+            <span class="label">Highest</span>
+            <span class="value">₹<span data-count="23.40">0</span> LPA</span>
+          </div>
+
+          <div class="row">
+            <span class="label">Mean</span>
+            <span class="value">₹<span data-count="12.00">0</span> LPA</span>
+          </div>
+
+          <div class="row">
+            <span class="label">Median</span>
+            <span class="value">₹<span data-count="11.00">0</span> LPA</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div>
+
+        <div class="pie-wrap" style="display:flex;flex-direction:column;align-items:center;justify-content:center;">
+
+          <h3 style="color:var(--navy);margin-bottom:20px;font-size:1.1rem;">
+            Placement Domains
+          </h3>
+
+          <div id="placementPie"
+               style="width:260px;height:260px;border-radius:50%;box-shadow:var(--shadow-sm);margin-bottom:20px;">
+          </div>
+
+          <ul class="pie-legend">
+            <li><span class="dot" style="background:#0d2c4a;"></span>Analytics — 46.15%</li>
+            <li><span class="dot" style="background:#1b7a8c;"></span>Econometrics &amp; Credit Risk — 23.07%</li>
+            <li><span class="dot" style="background:#2fa4b8;"></span>AI &amp; Decision Science — 15.38%</li>
+            <li><span class="dot" style="background:#f2a900;"></span>Consulting — 7.69%</li>
+            <li><span class="dot" style="background:#6f42c1;"></span>Research — 7.69%</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+<!--
+        <h3 style="color:var(--navy);margin-bottom:16px;font-size:1.1rem;">Batch Profile</h3>
+
+        <div class="gender-bar">
+          <div class="seg" style="width:73%;background:var(--navy);">55 BS-MS</div>
+          <div class="seg" style="width:27%;background:var(--teal);">20 MSc</div>
+        </div>
+
+        <p style="text-align:right;color:var(--text-muted);font-size:.85rem;margin-bottom:10px;">
+          40% Female
+        </p>
+
+        <div class="alumni-box">
+          <h4>Alumni Reflections</h4>
+          <p>
+            Our graduates credit the department's rigorous academics and practical training for helping them thrive in corporate roles. Alumni often highlight supportive faculty, industry exposure, and collaborative learning as key factors that built the confidence and skills needed for successful careers in analytics, finance, consulting, and technology.
+          </p>
+        </div>
+-->
+
+</section>
+<!--
+  <section class="section reveal">
+    <span class="eyebrow">In their words</span>
+    <h2>Alumni Feedback</h2>
+    <hr class="divider">
+    <div class="carousel">
+      <div class="carousel-arrow prev">‹</div>
+      <div class="carousel-track">
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="https://picsum.photos/seed/alum1/100/100" alt="Aditi Sharma" loading="lazy" width="74" height="74">
+              <p class="quote">"Our graduates credit the department's rigorous academics and practical training for helping them thrive in corporate roles."</p>
+              <h4>Aditi Sharma</h4>
+              <span>Analyst, Deloitte · Batch of 2024</span>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="https://picsum.photos/seed/alum2/100/100" alt="Rohan Mehta" loading="lazy" width="74" height="74">
+              <p class="quote">"The supportive faculty and industry exposure built the confidence and skills needed for a successful analytics career."</p>
+              <h4>Rohan Mehta</h4>
+              <span>DS/ML Engineer, JPMorgan · Batch of 2023</span>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="https://picsum.photos/seed/alum3/100/100" alt="Priya Nair" loading="lazy" width="74" height="74">
+              <p class="quote">"Collaborative learning and strong quant foundations from IITK gave me an edge in consulting case interviews."</p>
+              <h4>Priya Nair</h4>
+              <span>Consultant, McKinsey · Batch of 2024</span>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <img src="https://picsum.photos/seed/alum4/100/100" alt="Karan Verma" loading="lazy" width="74" height="74">
+              <p class="quote">"The econometrics and finance coursework directly translated into my quant research role on the trading desk."</p>
+              <h4>Karan Verma</h4>
+              <span>Quant, Goldman Sachs · Batch of 2022</span>
+            </div>
+          </div>
+      </div>
+      <div class="carousel-arrow next">›</div>
+      <div class="carousel-dots"></div>
+    </div>
+  </section>
+-->
+
+  <section class="section reveal">
+    <span class="eyebrow">Our recruiters</span>
+    <h2>Past Recruiters</h2>
+    <hr class="divider">
+
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+
+        <img src="https://assets.kpmg.com/is/image/kpmg/kpmg-logo-1" alt="KPMG logo" loading="lazy" width="120" height="42">
+        <img src="https://cdn.cookielaw.org/logos/2396a178-b290-4b3f-bf3f-5be727810e2a/7a38bda8-6d4e-4612-9fa8-0ba8399cfbbd/1597e0af-3a87-4e09-81a7-55cbdff351d4/Acc-Logo-Black-Purple_v2_final_trans.png" alt="Accenture logo" loading="lazy" width="120" height="42">
+        <img src="https://www.citigroup.com/rcs/citigpa/storage/public/citi-logo-rgb.jpg" alt="Citibank logo" loading="lazy" width="90" height="42">
+
+        <img src="https://cdn.cookielaw.org/logos/6bc6231d-7325-4e31-b650-3d158d80c942/84994404-c413-4254-a0f4-e912ef06e455/7aa03e55-5dcf-468f-a0c3-b5cc5d7a28cd/AtkinsRealis_primary_lock-up_dark_grey_RGB.png" alt="AtkinsRéalis logo" loading="lazy" width="300" height="42">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Virtusa_Logo.svg" alt="Virtusa logo" loading="lazy" width="200" height="42">
+
+      <!-- Official logos -->
+        <img src="https://www.gstn.org.in/assets/mainDashboard/img/logo_white.png" alt="GST Network logo" loading="lazy" width="120" height="42">
+        <img src="https://cafral.org.in/themes/custom/cafral_theme/assets-dev/images/Cafral_logo.png" alt="CAFRAL logo" loading="lazy" width="120" height="42">
+
+      <!-- Duplicate set for seamless marquee -->
+        <img src="https://assets.kpmg.com/is/image/kpmg/kpmg-logo-1" alt="KPMG logo" loading="lazy" width="120" height="42">
+        <img src="https://cdn.cookielaw.org/logos/2396a178-b290-4b3f-bf3f-5be727810e2a/7a38bda8-6d4e-4612-9fa8-0ba8399cfbbd/1597e0af-3a87-4e09-81a7-55cbdff351d4/Acc-Logo-Black-Purple_v2_final_trans.png" alt="Accenture logo" loading="lazy" width="120" height="42">
+        <img src="https://www.citigroup.com/rcs/citigpa/storage/public/citi-logo-rgb.jpg" alt="Citibank logo" loading="lazy" width="90" height="42">
+
+        <img src="https://cdn.cookielaw.org/logos/6bc6231d-7325-4e31-b650-3d158d80c942/84994404-c413-4254-a0f4-e912ef06e455/7aa03e55-5dcf-468f-a0c3-b5cc5d7a28cd/AtkinsRealis_primary_lock-up_dark_grey_RGB.png" alt="AtkinsRéalis logo" loading="lazy" width="300" height="42">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Virtusa_Logo.svg" loading="lazy" width="200" height="42">
+        <img src="https://www.gstn.org.in/assets/mainDashboard/img/logo_white.png" alt="GST Network logo" loading="lazy" width="120" height="42">
+        <img src="https://cafral.org.in/themes/custom/cafral_theme/assets-dev/images/Cafral_logo.png" alt="CAFRAL logo" loading="lazy" width="120" height="42">
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <span class="eyebrow">Skillset</span>
+    <h2>Why Hire Us</h2>
+    <p class="subtitle">Our students graduate with strong command over the tools that matter most in data-driven roles — from statistical computing to business intelligence and reporting.</p>
+
+    <div class="grid grid-5">
+      <div class="skill-card reveal">
+        <img src="https://www.python.org/static/img/python-logo-large.c36dccadd999.png?1694722768" alt="Python logo" loading="lazy" width="44" height="44">
+        <p>Python</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://cdn.simpleicons.org/r/1b7a8c" alt="R logo" loading="lazy" width="44" height="44">
+        <p>R</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://www.stata.com/includes/images/stata-logo-blue.svg" alt="Stata logo" loading="lazy" width="44" height="44">
+        <p>Stata</p>
+      </div>
+    
+      <div class="skill-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="Scikit-learn logo" loading="lazy" width="44" height="44">
+        <p>Scikit-learn</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/TensorFlow_logo.svg" alt="TensorFlow logo" loading="lazy" width="44" height="44">
+        <p>TensorFlow</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://cdn.simpleicons.org/mysql/1b7a8c" alt="SQL logo" loading="lazy" width="44" height="44">
+        <p>SQL</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/LaTeX_logo.svg/1920px-LaTeX_logo.svg.png?_=20210414121601" alt="LaTeX logo" loading="lazy" width="44" height="44">
+        <p>LaTeX</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://cdn.simpleicons.org/cplusplus/1b7a8c" alt="C++ logo" loading="lazy" width="44" height="44">
+        <p>C++</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Tableau_Software_Logo_Small.png" alt="Tableau logo" loading="lazy" width="44" height="44">
+        <p>Tableau</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI logo" loading="lazy" width="44" height="44">
+        <p>Power BI</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg" alt="Excel logo" loading="lazy" width="44" height="44">
+        <p>Excel</p>
+      </div>
+
+      <div class="skill-card reveal">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_PowerPoint_%282025%E2%80%93present%29.svg" alt="PowerPoint logo" loading="lazy" width="44" height="44">
+        <p>PowerPoint</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="courses">
+    <span class="eyebrow">Curriculum</span>
+    <h2>Courses Offered</h2>
+    <hr class="divider">
+    <div class="course-block featured" style="margin-bottom:24px;">
+      <h3>Finance / Quant</h3>
+      <ol>
+        <li>Foundation of Financial Risk</li>
+        <li>Applied Probability and Statistics</li>
+        <li>Financial Econometrics</li>
+        <li>Introduction to Derivatives Pricing</li>
+        <li>Credit Risk Management and Modeling*</li>
+        <li>Investment Banking: Capital Market Operations*</li>
+        <li>Advanced Corporate Finance*</li>
+      </ol>
+    </div>
+
+    <div class="grid grid-2" style="margin-bottom:24px;">
+      <div class="course-block reveal">
+        <h3>Data Science / ML</h3>
+        <ol>
+          <li>Intro to Machine Learning*</li>
+          <li>Probabilistic Machine Learning*</li>
+          <li>Data Structures and Algorithms</li>
+          <li>Dynamic Optimization</li>
+          <li>Machine Learning for Economists</li>
+          <li>Applied Probability and Statistics</li>
+          <li>Game Theory Applications</li>
+        </ol>
+      </div>
+      <div class="course-block reveal">
+        <h3>Econometrics</h3>
+        <ol>
+          <li>Advanced Econometrics</li>
+          <li>Bayesian Econometrics</li>
+          <li>Financial Econometrics</li>
+          <li>Time Series Analysis</li>
+          <li>Panel Data Analysis</li>
+          <li>Economic Data Analysis</li>
+          <li>Applied Probability and Statistics</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="grid grid-2">
+      <div class="course-block reveal">
+        <h3>Core Economics</h3>
+        <ol>
+          <li>Microeconomics</li>
+          <li>Macroeconomics</li>
+          <li>Public Economics and Policy</li>
+          <li>Health Economics and Policy</li>
+          <li>Environmental Economics</li>
+          <li>Development Economics</li>
+          <li>Empirical Methods in Economics</li>
+        </ol>
+      </div>
+      <div class="course-block reveal">
+        <h3>Management / Non-Core</h3>
+        <ol>
+          <li>Organization Structure and Design*</li>
+          <li>Strategic Management*</li>
+          <li>Introduction to Management</li>
+          <li>Marketing Management*</li>
+          <li>Accounting and Finance*</li>
+          <li>Operations Management*</li>
+          <li>Project Financing and Management*</li>
+        </ol>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--text-muted);font-size:.85rem;margin-top:24px;">* Elective courses</p>
+  </section>
+
+  <section class="section reveal" id="batch">
+    <span class="eyebrow">Class of 2025-27</span>
+    <h2>Batch Profile</h2>
+    <hr class="divider">
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Search by name or interest...">
+    </div>
+    <div class="grid grid-4" id="studentGrid">
+        <div class="student-card reveal" data-name="Akash Pal" data-interests="Behavioral finance | Portfolio optimization | Financial risk management | Financial Econometrics">
+          <div class="photo-wrap">
+            <img src="web/Akash.png" alt="Akash Pal" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Akash Pal</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/akashpal12/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/farzigulzar" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://farzigulzar.github.io/cv/akash.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:apal25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Behavioral Finance</span><span class="tag">Portfolio Optimization</span><span class="tag">Financial Risk Management</span><span class="tag">Financial Econometrics</span></div>
+          </div>
+        </div>
+        <div class="student-card reveal" data-name="Anik Chakraborty" data-interests="Data Science | Machine Learning | Data Analytics | Econometrics | Quantitative Finance">
+          <div class="photo-wrap">
+            <img src="web/Anik.png" alt="Anik Chakraborty" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Anik Chakraborty</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/anik-chakraborty-320503225/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/anikc25" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://anikc25.github.io/resume/Resume_Anik_Chakraborty.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:anik07chakraborty010203@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Data Science</span><span class="tag">Machine Learning</span><span class="tag">Data Analytics</span><span class="tag">Econometrics</span><span class="tag">Quantitative Finance</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Aryan Anand" data-interests="Data Analytics | Quantitative Methods | Credit Risk | Econometrics | Statistical Modeling | Spatial Analysis">
+          <div class="photo-wrap">
+            <img src="web/aryan.png" alt="Aryan Anand" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Aryan Anand</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/aryan-anand-a876ba236/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/aryananand4545/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://aryananand4545.github.io/resume/Aryan_Anand_Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:aryananand4545@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Data Analytics</span><span class="tag">Quantitative Methods</span><span class="tag">Credit Risk</span><span class="tag">Econometrics</span><span class="tag">Statistical Modeling</span><span class="tag">Spatial Analysis</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Bhagyashree" data-interests="Economic Development & Growth Strategy | Public Policy & Regulatory Strategy | Socioeconomic Insights | Agribusiness & Rural Market Strategy">
+          <div class="photo-wrap">
+            <img src="web/Bhagyashree.png" alt="Bhagyashree" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Bhagyashree</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/bhagyashree-r-5034681b2/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/bhagya-shree17" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://bhagya-shree17.github.io/Bhagyashree.pdf/" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:bhagyashree25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Economic Development & Growth Strategy</span><span class="tag">Public Policy & Regulatory Strategy</span><span class="tag">Socioeconomic Insights</span><span class="tag">Agribusiness & Rural Market Strategy</span></div>
+          </div>
+        </div>
+
+
+
+        <div class="student-card reveal" data-name="Choppara Gowtham" data-interests="Economic Development & Growth Strategy | Public Sector Strategy">
+          <div class="photo-wrap">
+            <img src="web/Gotham.png" alt="Choppara Gowtham" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Choppara Gowtham</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/gowtham-choppara-075b66263" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/gowthamchoppara18" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://gowthamchoppara18.github.io/Resume/Resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:chopparag25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Economic Development & Growth Strategy</span><span class="tag">Public Sector Strategy</span></div>
+          </div>
+        </div>
+
+
+
+        <div class="student-card reveal" data-name="Durgesh Yadav" data-interests="Macroeconomics | Finance | Valuation | Econometrics | Data science | AI/ML | Bayesian analysis">
+          <div class="photo-wrap">
+            <img src="web/Durgesh.png" alt="Durgesh Yadav" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Durgesh Yadav</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/durgesh-yadav-b6950528a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/Durgesh060401" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://durgesh060401.github.io/My-Resume/" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:durgesh240199@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Macroeconomics</span><span class="tag">Finance</span><span class="tag">Valuation</span><span class="tag">Econometrics</span><span class="tag">Data science</span><span class="tag">AI/ML</span><span class="tag">Bayesian Analysis</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Gandharv Gedam" data-interests="Finance| Econometrics | Machine Learning | Macroeconomics | Macroeconomic Forecasting | Asset Management">
+          <div class="photo-wrap">
+            <img src="web/Gandhar.png" alt="Gandharv Gedam" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Gandharv Gedam</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/gandharvgedam/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/gage04-gg" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://gage04-gg.github.io/Resume/" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:gandharvg25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Finance</span><span class="tag">Econometrics</span><span class="tag">Machine Learning</span><span class="tag">Macroeconomics</span><span class="tag">Macroeconomic Forecasting</span><span class="tag">Asset Management</span></div>
+          </div>
+        </div>
+
+
+        
+        <div class="student-card reveal" data-name="Harshita Kumar" data-interests="Data Science | AI | Machine Learning | Quantitative Economics | Macroeconomics">
+          <div class="photo-wrap">
+            <img src="web/harshita.png" alt="Harshita Kumar" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Harshita Kumar</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/harshita-kumar-/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/harshita7kumar" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://harshita7kumar.github.io/Harshita-CV/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:harshita7kumar@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Data Science</span><span class="tag">AI</span><span class="tag">Machine Learning</span><span class="tag">Quantitative Economics</span><span class="tag">Macroeconomics</span></div>
+          </div>
+        </div>
+      
+
+        <div class="student-card reveal" data-name="Ishika Singh Jajaniya" data-interests="Economic Policy | Macroeconomic Analysis | Monetary Policy | Public Finance">
+          <div class="photo-wrap">
+            <img src="web/Ishika.png" alt="Ishika Singh Jajaniya" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Ishika Singh Jajaniya</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/ishika-singh-b08165274" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/Ishika3010" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://ishika3010.github.io/RESUME/" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:ishikas25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Economic Policy</span><span class="tag">Macroeconomic Analysis</span><span class="tag">Monetary Policy</span><span class="tag">Public Finance</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Mayank Rathi" data-interests="Macro-Finance | Credit Risk | Financial Risk Management | Machine Learning | Optimisation Algorithms">
+          <div class="photo-wrap">
+            <img src="web/Mayank.png" alt="Mayank Rathi" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Mayank Rathi</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/mynk-r" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/mynk-r" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://mynk-r.github.io/Portfolio/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:mayankr25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Macro-Finance</span><span class="tag"> Credit Risk</span><span class="tag">Financial Risk Management</span><span class="tag">Machine Learning</span><span class="tag">Optimisation Algorithms</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Nidhi Singh" data-interests="Macroeconomics | Indian Economy | Quantitative Methods">
+          <div class="photo-wrap">
+            <img src="web/Nidhi.png" alt="Nidhi Singh" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Nidhi Singh</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/nidhi-singh-2003ns/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/nidhis2003" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://nidhis2003.github.io/Resume/" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:1603.n.singh@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Macroeconomics</span><span class="tag">Indian Economy</span><span class="tag">Quantitative Methods</span><span class="tag">Agricultural Economics</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Oshi Johri" data-interests="Data Analytics | Data Science | Machine Learning | Credit Risk">
+          <div class="photo-wrap">
+            <img src="web/oshi.png" alt="Oshi Johri" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Oshi Johri</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/oshi-johri-968754253" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/johrioshi-0607" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://johrioshi-0607.github.io/CV/" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:johrioshi@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Data Analytics</span><span class="tag">Data Science</span><span class="tag">Machine Learning</span><span class="tag">Credit Risk</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Pragya Kapoor" data-interests="Data Analysis | Consulting | Research">
+          <div class="photo-wrap">
+            <img src="web/Pragya.png" alt="Pragya Kapoor" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Pragya Kapoor</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/pragya-kapoor-75a989229" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/Pragyakapoor473" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://pragyakapoor473.github.io/Resume/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:pragyakapoor0473@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Data Analysis</span><span class="tag">Consulting</span><span class="tag">Research</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Sanghamitra Tomar" data-interests="Finance | Investment | Consulting | Banking">
+          <div class="photo-wrap">
+            <img src="web/sangha.png" alt="Sanghamitra Tomar" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Sanghamitra Tomar</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/sanghamitra-tomar-2a611b220/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/sanghamitra-t" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://sanghamitra-t.github.io/sanghamitra-resume/" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:sanghamitra.tomar@gmail.com" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Finance</span><span class="tag">Investment</span><span class="tag">Consulting</span><span class="tag">Banking</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Shamoitree Pal" data-interests="Macroeconomics | Econometrics | Computational Economics | Machine Learning | Causal Inference | Public Policy Analysis">
+          <div class="photo-wrap">
+            <img src="web/shamoitree.png" alt="Shamoitree Pal" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Shamoitree Pal</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/shamoitree-pal-679790424/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/shamoitreepal" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://drive.google.com/file/d/1J0oMZYdK9J9P0kGlt711Rw9SzAi0zUSi/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:shamoitree25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Macroeconomics</span><span class="tag">Econometrics</span><span class="tag">Computational Economics</span><span class="tag">Machine Learning</span><span class="tag">Causal Inference</span><span class="tag">Public Policy Analysis</span></div>
+          </div>
+        </div>
+
+
+        
+        <!--
+        <div class="student-card reveal" data-name="Shreya Singla" data-interests="Consultancy | Data Analytics ">
+          <div class="photo-wrap">
+            <img src="web/shreya.png" alt="Shreya Singla" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Shreya Singla</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/shreya-singla-272ss/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/shreya-singla" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://drive.google.com/file/d/18s_gyn5EYsiU2YAEOspdJ7QRKrw7kvyK/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:shreyasingla25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Consultancy</span><span class="tag">Data Analytics</span></div>
+          </div>
+        </div>
+        -->
+
+        <div class="student-card reveal" data-name="Sristi Sarkar" data-interests="Market Intelligence & Information Strategy | Macroeconomic Forecasting & Quantitative Modelling | Incentive Design & Strategic Decision Frameworks">
+          <div class="photo-wrap">
+            <img src="web/sristi.png" alt="Sristi Sarkar" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Sristi Sarkar</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/sristi-sarkar-b39b66375/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/Sristi-codes" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="web/git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://sristi-codes.github.io/Resume/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="web/resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:sristisa25@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="web/mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Market Intelligence & Information Strategy</span><span class="tag">Macroeconomic Forecasting & Quantitative Modelling</span><span class="tag">Incentive Design & Strategic Decision Frameworks</span></div>
+          </div>
+        </div>
+
+        <!--
+        <div class="student-card reveal" data-name="Bhagyashree" data-interests="Development Economics | Political Economy | Economic Sociology | Agricultural Economics">
+          <div class="photo-wrap">
+            <img src="Bhagyashree.png" alt="Bhagyashree" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Bhagyashree</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/akashpal12/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/example" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://example.com/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:student1@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Development Economics</span><span class="tag">Political Economy</span><span class="tag">Economic Sociology</span><span class="tag">Agricultural Economics</span></div>
+          </div>
+        </div>
+
+        <div class="student-card reveal" data-name="Bhagyashree" data-interests="Development Economics | Political Economy | Economic Sociology | Agricultural Economics">
+          <div class="photo-wrap">
+            <img src="Bhagyashree.png" alt="Bhagyashree" loading="lazy" width="300" height="340">
+          </div>
+          <div class="student-info">
+            <h3>Bhagyashree</h3>
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/akashpal12/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                <img src="web/linkedin.jpg" alt="" width="14" height="14">
+              </a>
+              <a href="https://github.com/example" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                <img src="git.png" alt="" width="14" height="14">
+              </a>
+              <a href="https://example.com/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Resume" title="Resume">
+                <img src="resume.png" alt="" width="14" height="14">
+              </a>
+              <a href="mailto:student1@iitk.ac.in" aria-label="Email" title="Email">
+                <img src="mail.png" alt="" width="14" height="14">
+              </a>
+            </div>
+            <div class="tag-wrap"><span class="tag">Development Economics</span><span class="tag">Political Economy</span><span class="tag">Economic Sociology</span><span class="tag">Agricultural Economics</span></div>
+          </div>
+        </div>
+
+      -->
+
+    </div>
+  </section>
+
+  <section class="contact-hero" id="contact">
+    <div class="bg-img"></div>
+    <div class="overlay"></div>
+    <div class="contact-hero-content">
+      <center><img class="crest" src="web/logo_white.png" alt="IITK crest" loading="lazy" width="90" height="90"></center>
+      <h1>Register<br>Your Company Now</h1>
+      <p>We look forward to being part of your company's growth journey.</p>
+    </div>
+  </section>
+
+  <section class="contact-dark">
+    <div class="contact-block">
+      <h2>Contact Us</h2>
+      <div class="contact-info-grid">
+        <div class="qr-block">
+          <img src="web/spo_qr.png" alt="Students Placement Office QR code" loading="lazy" width="130" height="130">
+          <a href="https://spo.iitk.ac.in/companies" target="_blank" rel="noopener noreferrer">Students Placement Office</a>
+        </div>
+        <div class="contact-address">
+          Students Placement Office 109,<br>
+          Outreach Building, IIT Kanpur<br>
+          +91 512 259 4433/34<br>
+          <a href="mailto:spo@iitk.ac.in">spo@iitk.ac.in</a>
+        </div>
+        <div class="qr-block">
+          <img src="web/dept_qr.png" alt="Economic Sciences Department QR code" loading="lazy" width="130" height="130">
+          <a href="https://iitk.ac.in/eco/" target="_blank" rel="noopener noreferrer">Economic Sciences Department</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-block">
+      <h2>Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="web/aditya-vikram-min (1).jpg" alt="Dr. Aditya Vikram" loading="lazy" width="150" height="150">
+          <h4>Dr. Aditya Vikram</h4>
+          <p class="role">Faculty Coordinator</p>
+          <a href="mailto:vikrama@iitk.ac.in">vikrama@iitk.ac.in</a>
+        </div>
+        <div class="team-member">
+          <img src="web/MR_blazer.png" alt="Mayank Rathi" loading="lazy" width="150" height="150">
+          <h4>Mayank Rathi</h4>
+          <p class="role">Department Placement Coordinator</p>
+          <a href="mailto:mayankr25@iitk.ac.in">mayankr25@iitk.ac.in</a>
+          <p class="phone">+91 9333996277</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="logo"><img src="web/logo_white.png" alt="logo">MSc Economics, IIT Kanpur</div>
+    <div class="foot-links">
+      <a href="#home">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#batch">Batch Profile</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+    <p>&copy; 2026 MSc Economics Batch 2025-27, Department of Economic Sciences, IIT Kanpur</p>
+  </footer>
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navUl = document.querySelector('nav ul');
+  if (hamburger) hamburger.addEventListener('click', () => navUl.classList.toggle('show'));
+
+  document.querySelectorAll('nav ul li a').forEach(a => {
+    a.addEventListener('click', () => navUl.classList.remove('show'));
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
+  }, { threshold: 0.15 });
+  reveals.forEach(el => obs.observe(el));
+
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    window.addEventListener('scroll', () => backToTop.classList.toggle('show', window.scrollY > 400));
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  const nav = document.querySelector('nav');
+  if (nav) {
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 40 ? '0 4px 20px rgba(0,0,0,0.4)' : '0 2px 14px rgba(0,0,0,0.25)';
+    });
+  }
+
+  const counters = document.querySelectorAll('[data-count]');
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = +e.target.dataset.count;
+        let count = 0;
+        const step = Math.max(target/60, 0.1);
+        const timer = setInterval(() => {
+          count += step;
+          if (count >= target) { count = target; clearInterval(timer); }
+          e.target.textContent = (target % 1 !== 0) ? count.toFixed(2) : Math.floor(count);
+        }, 20);
+        counterObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObs.observe(c));
+
+  initCarousel();
+  initPieChart();
+  initStudentFilter();
+});
+
+function initCarousel(){
+  const track = document.querySelector('.carousel-track');
+  if(!track) return;
+  const slides = track.children.length;
+  let idx = 0;
+  const dotsWrap = document.querySelector('.carousel-dots');
+  for(let i=0;i<slides;i++){
+    const d = document.createElement('div');
+    d.classList.add('dot');
+    if(i===0) d.classList.add('active');
+    d.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(d);
+  }
+  function goTo(i){
+    idx = (i+slides)%slides;
+    track.style.transform = `translateX(-${idx*100}%)`;
+    document.querySelectorAll('.carousel-dots .dot').forEach((d,j)=>d.classList.toggle('active', j===idx));
+  }
+  document.querySelector('.carousel-arrow.next')?.addEventListener('click', ()=>goTo(idx+1));
+  document.querySelector('.carousel-arrow.prev')?.addEventListener('click', ()=>goTo(idx-1));
+  setInterval(()=>goTo(idx+1), 5000);
+}
+
+function initPieChart(){
+  const pie = document.getElementById('placementPie');
+  if(!pie) return;
+  const data = [
+    { value: 46.15, color: "#0d2c4a" },
+    { value: 23.07, color: "#1b7a8c" },
+    { value: 15.38, color: "#2fa4b8" },
+    { value: 7.69, color: "#f2a900" },
+    { value: 7.69, color: "#6f42c1" }
+  ];
+  let cumulative = 0;
+  const stops = data.map(d => {
+    const start = cumulative;
+    cumulative += d.value;
+    return `${d.color} ${start}% ${cumulative}%`;
+  }).join(', ');
+  pie.style.background = `conic-gradient(${stops})`;
+}
+
+function initStudentFilter(){
+  const search = document.getElementById('searchInput');
+  const cards = document.querySelectorAll('.student-card');
+  if(!search) return;
+
+  function applyFilter(){
+    const q = search.value.toLowerCase();
+    cards.forEach(card => {
+      const name = card.dataset.name.toLowerCase();
+      const interests = card.dataset.interests.toLowerCase();
+      const matches = name.includes(q) || interests.includes(q);
+      card.style.display = matches ? '' : 'none';
+    });
+  }
+  search.addEventListener('input', applyFilter);
+}
+
+</script>
+</body>
+</html>
